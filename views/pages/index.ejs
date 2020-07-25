@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node Test</title>
+
+    <!-- CSS (load bootstrap from a CDN) -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <style>
+        body    { padding-top:50px; }
+    </style>
+</head>
+<body class="container">
+
+<header>
+    
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h3>Partners Request Result</h3>
+        <form action="" method="post">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate">
+
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate">
+
+            <input type="submit" value="Search" >
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th width="60%">Partner Name</th>
+                    <th width="20%">Counts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(partnersData.length != 0) { %>
+                    <% partnersData.forEach(function(item) { %>
+                        <tr>
+                            <td width="70%"><%= item.name %></td>
+                            <td width="30%"><%= item.total_hits %></td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td width="100%" colspan="2">No record found!</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+
+
+</body>
+</html>
